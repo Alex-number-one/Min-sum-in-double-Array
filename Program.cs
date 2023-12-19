@@ -9,6 +9,8 @@
 int count = 0;
 int max2 = 0;
 int max = 0;
+int temp = 0;
+int maxElement = 0;
 //int maxElemen2 = 0
 int[,] CreateArray(int columns, int rows)
 {
@@ -28,10 +30,13 @@ int[,] CreateArray(int columns, int rows)
             for (int l = 0;  l < Array.GetLength(1); l++)
            
             max2 += Array[k, l];
+            
         }
         }
         Console.WriteLine();
-        if (max2 > max) max = max2;
+        if (max2 > max) maxElement = max2;
+        else maxElement = max;
+        Console.WriteLine(maxElement);
     }
     return Array;
 }
