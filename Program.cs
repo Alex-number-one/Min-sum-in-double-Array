@@ -17,33 +17,44 @@ int[,] CreateArray(int columns, int rows)
 
     for (int i = 0; i < Array.GetLength(0); i++)
     {
+
+        
         for (int k = 0; k < Array.GetLength(0) - 1; k++)
         {
             for (int l = 0; l < Array.GetLength(1); l++)
-                 max2 += Array[k, l];
-
-
+            {
+                max2 += Array[k, l];
+            }
         }
+        
 
         for (int j = 0; j < Array.GetLength(1); j++)
         {
             Array[i, j] = new Random().Next(0, 10);
             max += Array[i, j];
 
-
+        }
+        
+        if (max2 > max)
+        {
+            maxElement = max2;
 
         }
-        Console.WriteLine();
-        if (max2 > max) maxElement = max2;
-        else maxElement = max;
+        else
+        {
+            maxElement = max;
+        }
         Console.WriteLine("max is: " + max);
         Console.WriteLine("max2 is: " + max2);
-        max = 0;
+        Console.WriteLine("maxElement is: " + maxElement);
         max2 = 0;
-    }
-    //Console.WriteLine(maxElement);
+        max = 0;
+        
+    
+    }//Console.WriteLine(maxElement);
     return Array;
 }
+
 void PrintArray(int[,] Array)
 {
     for (int i = 0; i < Array.GetLength(0); i++)
@@ -55,6 +66,6 @@ void PrintArray(int[,] Array)
         Console.WriteLine();
     }
 }
-PrintArray(CreateArray(2, 2));
+PrintArray(CreateArray(3, 3));
 
 Console.WriteLine(maxElement);
