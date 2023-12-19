@@ -20,7 +20,7 @@ int[,] CreateArray(int columns, int rows)
         for (int k = 0; k < Array.GetLength(0) - 1; k++)
         {
             for (int l = 0; l < Array.GetLength(1); l++)
-                if (i != 0) max2 += Array[k, l];
+                 max2 += Array[k, l];
 
 
         }
