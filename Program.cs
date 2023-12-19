@@ -17,21 +17,21 @@ int[,] CreateArray(int columns, int rows)
 
     for (int i = 0; i < Array.GetLength(0); i++)
     {
-        
+        for (int k = 0; k < Array.GetLength(0) - 1; k++)
+        {
+            for (int l = 0; l < Array.GetLength(1); l++)
+                if (i != 0) max2 += Array[k, l];
+
+
+        }
 
         for (int j = 0; j < Array.GetLength(1); j++)
         {
             Array[i, j] = new Random().Next(0, 10);
-        max += Array[i, j];
-        
+            max += Array[i, j];
 
-        for (int k = 0; k < Array.GetLength(0) - 1; k++)
-        {
-            for (int l = 0;  l < Array.GetLength(1); l++)
-           if (i != 0) max2 += Array[k, l];
-            
-            
-        }
+
+
         }
         Console.WriteLine();
         if (max2 > max) maxElement = max2;
