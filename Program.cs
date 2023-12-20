@@ -11,8 +11,8 @@ using System.Globalization;
 int count = 0;
 int max2 = 0;
     int max = 0;
-int maxElement = 0;
-int maxElement2 = 0;
+int maxSumm = 0;
+int maxSumm2 = 0;
 int[,] CreateArray(int columns, int rows)
 {
     int[,] Array = new int[columns, rows];
@@ -42,28 +42,30 @@ int[,] CreateArray(int columns, int rows)
         
         if (max2 > max)
         {
-        maxElement2 = max2;
+        maxSumm2 = max2;
         }
-        else if (max > max2 && max > maxElement)
+        else if (max > max2 && max > maxSumm)
         {
-            maxElement = max;
-            count ++;
+            maxSumm = max;
+            count = i + 1;
         }
-        if ( maxElement2 > maxElement)
+        if ( maxSumm2 > maxSumm)
         {
-        maxElement = maxElement2;
-        count++;
+        maxSumm = maxSumm2;
+        count = i + 1;
         }
+        
         Console.WriteLine("max is: " + max);
         Console.WriteLine("max2 is: " + max2);
-        Console.WriteLine("maxElement is: " + maxElement);
+        Console.WriteLine("maxSumm is: " + maxSumm);
+        Console.WriteLine("count is: " + count);
        max2 = max;
         max = 0;
         
         
         
     
-    }//Console.WriteLine(maxElement);
+    }//Console.WriteLine(maxSumm);
     return Array;
 }
 
@@ -78,5 +80,6 @@ void PrintArray(int[,] Array)
         Console.WriteLine();
     }
 }
-PrintArray(CreateArray(18, 18));
-Console.WriteLine(maxElement);
+PrintArray(CreateArray(3, 3));
+Console.WriteLine(maxSumm);
+Console.WriteLine($"The number of row: {count}");
