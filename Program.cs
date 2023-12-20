@@ -6,15 +6,16 @@
 8 4 2 4
 5 2 6 7
 Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка*/
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 int count = 0;
-int max2 = 0;
-    int max = 0;
-int maxSumm = 0;
-int maxSumm2 = 0;
+    int min = 0;
+int minSum = int.MaxValue;
+int minSum2 = int.MaxValue;
 int[,] CreateArray(int columns, int rows)
 {
+    int min2 = min;
     int[,] Array = new int[columns, rows];
  
     for (int i = 0; i < Array.GetLength(0); i++)
@@ -35,37 +36,37 @@ int[,] CreateArray(int columns, int rows)
         for (int j = 0; j < Array.GetLength(1); j++)
         {
             Array[i, j] = new Random().Next(0, 10);
-            max += Array[i, j];
+            min += Array[i, j];
 
         }
+        if (i == 0) min2 = min;
         
-        
-        if (max2 > max)
+        if (min2 < min)
         {
-        maxSumm2 = max2;
+        minSum2 = min2;
         }
-        else if (max > max2 && max > maxSumm)
+        else if (min < min2 && min < minSum)
         {
-            maxSumm = max;
+            minSum = min;
             count = i + 1;
         }
-        if ( maxSumm2 > maxSumm)
+        if ( minSum2 < minSum)
         {
-        maxSumm = maxSumm2;
+        minSum = minSum2;
         count = i + 1;
         }
         
-        Console.WriteLine("max is: " + max);
-        Console.WriteLine("max2 is: " + max2);
-        Console.WriteLine("maxSumm is: " + maxSumm);
+        Console.WriteLine("min is: " + min);
+        Console.WriteLine("min2 is: " + min2);
+        Console.WriteLine("minSum is: " + minSum);
         Console.WriteLine("count is: " + count);
-       max2 = max;
-        max = 0;
+       min2 = min;
+        min = 0;
         
         
         
     
-    }//Console.WriteLine(maxSumm);
+    }//Console.WriteLine(minSum);
     return Array;
 }
 
@@ -81,5 +82,5 @@ void PrintArray(int[,] Array)
     }
 }
 PrintArray(CreateArray(3, 3));
-Console.WriteLine(maxSumm);
+Console.WriteLine(minSum);
 Console.WriteLine($"The number of row: {count}");
