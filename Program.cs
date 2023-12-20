@@ -13,6 +13,7 @@ int count = 0;
     int min = 0;
 int minSum = int.MaxValue;
 int minSum2 = int.MaxValue;
+
 int[,] CreateArray(int columns, int rows)
 {
     int min2 = min;
@@ -42,8 +43,8 @@ int[,] CreateArray(int columns, int rows)
         if (i == 0)
          {
             min2 = min;
-             minSum = int.MaxValue;
-             minSum2 = int.MaxValue;
+             minSum = min;
+             minSum2 = min;
          }
         
         if (min2 < min)
@@ -67,7 +68,7 @@ int[,] CreateArray(int columns, int rows)
         Console.WriteLine("count is: " + count);
        min2 = min;
         min = 0;
-        
+        if (count == 0) count ++;
         
         
     
@@ -86,6 +87,6 @@ void PrintArray(int[,] Array)
         Console.WriteLine();
     }
 }
-PrintArray(CreateArray(3, 3));
-Console.WriteLine(minSum);
+PrintArray(CreateArray(18, 18));
+Console.WriteLine($"The min Sum is: {minSum}");
 Console.WriteLine($"The number of row: {count}");
