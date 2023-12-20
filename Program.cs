@@ -39,7 +39,12 @@ int[,] CreateArray(int columns, int rows)
             min += Array[i, j];
 
         }
-        if (i == 0) min2 = min;
+        if (i == 0)
+         {
+            min2 = min;
+             minSum = int.MaxValue;
+             minSum2 = int.MaxValue;
+         }
         
         if (min2 < min)
         {
