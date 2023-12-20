@@ -12,6 +12,7 @@ int count = 0;
 int max2 = 0;
     int max = 0;
 int maxElement = 0;
+int maxElement2 = 0;
 int[,] CreateArray(int columns, int rows)
 {
     int[,] Array = new int[columns, rows];
@@ -41,16 +42,17 @@ int[,] CreateArray(int columns, int rows)
         
         if (max2 > max)
         {
-            maxElement = max2;
-            
+        maxElement2 = max2;
         }
-        else if (max > maxElement)
+        else if (max > max2 && max > maxElement)
         {
             maxElement = max;
+            count ++;
         }
-        else if (max2 > maxElement)
+        if ( maxElement2 > maxElement)
         {
-            maxElement = max;
+        maxElement = maxElement2;
+        count++;
         }
         Console.WriteLine("max is: " + max);
         Console.WriteLine("max2 is: " + max2);
