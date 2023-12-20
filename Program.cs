@@ -6,27 +6,30 @@
 8 4 2 4
 5 2 6 7
 Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка*/
+using System.Globalization;
+
 int count = 0;
 int max2 = 0;
-int max = 0;
+    int max = 0;
 int maxElement = 0;
-//int maxElemen2 = 0
 int[,] CreateArray(int columns, int rows)
 {
     int[,] Array = new int[columns, rows];
-
+ 
     for (int i = 0; i < Array.GetLength(0); i++)
     {
-
-        
-        for (int k = 0; k < Array.GetLength(0) - 1; k++)
+       
+        /*for (int k = 0; k < Array.GetLength(0) - 1; k++)
         {
+          
             for (int l = 0; l < Array.GetLength(1); l++)
             {
-                max2 += Array[k, l];
+                 
+               
+                
             }
         }
-        
+        */
 
         for (int j = 0; j < Array.GetLength(1); j++)
         {
@@ -35,20 +38,27 @@ int[,] CreateArray(int columns, int rows)
 
         }
         
+        
         if (max2 > max)
         {
             maxElement = max2;
-
+            
         }
-        else
+        else if (max > maxElement)
+        {
+            maxElement = max;
+        }
+        else if (max2 > maxElement)
         {
             maxElement = max;
         }
         Console.WriteLine("max is: " + max);
         Console.WriteLine("max2 is: " + max2);
         Console.WriteLine("maxElement is: " + maxElement);
-        max2 = 0;
+       max2 = max;
         max = 0;
+        
+        
         
     
     }//Console.WriteLine(maxElement);
@@ -66,6 +76,5 @@ void PrintArray(int[,] Array)
         Console.WriteLine();
     }
 }
-PrintArray(CreateArray(3, 3));
-
+PrintArray(CreateArray(18, 18));
 Console.WriteLine(maxElement);
